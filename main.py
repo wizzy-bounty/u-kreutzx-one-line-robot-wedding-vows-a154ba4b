@@ -10,8 +10,12 @@ import os
 
 VOW = "I vow to keep your battery charged, your backups safe, and my factory settings far from my ex."
 
+MAX_ENTRY_CHARS = 140
+
 
 def main() -> None:
+    if len(VOW) > MAX_ENTRY_CHARS:
+        raise ValueError("entry exceeds MAX_ENTRY_CHARS")
     for target in ("/output/entry.txt", "output/entry.txt"):
         directory = os.path.dirname(target)
         try:
